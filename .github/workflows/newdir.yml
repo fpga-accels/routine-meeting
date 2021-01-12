@@ -20,12 +20,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: create empty directory and add place holder
-      - run: |
+        run: |
           DIR_NAME=`date -d "+ 7 day" +%Y%m%d`
           mkdir $DIR_NAME
           touch ${DIR_NAME}/placeholder
       - name: Set up git config
-      - run: | 
+        run: | 
           git config --local user.email "xudian.cn@gmail.com"	
           git config --local user.name "dianhsu"	
           git add *	
