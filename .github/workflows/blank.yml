@@ -1,0 +1,37 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  schedule:	
+    - cron: "30 5 * * 3"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: create empty directory and add place holder
+      - run: |
+          DIR_NAME=`date -d "+ 7 day" +%Y%m%d`
+          mkdir $DIR_NAME
+          touch ${DIR_NAME}/placeholder
+      - name: Set up git config
+      - run: | 
+          git config --local user.email "xudian.cn@gmail.com"	
+          git config --local user.name "dianhsu"	
+          git add *	
+          git commit -m "Add changes" -a
+      - name: Push changes	
+        uses: ad-m/github-push-action@master	
+        with:	
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
