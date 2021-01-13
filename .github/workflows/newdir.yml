@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   schedule:	
-    - cron: "30 5 * * 3"
+    - cron: "30 4 * * 3"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,7 +29,7 @@ jobs:
           git config --local user.email "xudian.cn@gmail.com"	
           git config --local user.name "dianhsu"	
           git add *	
-          git commit -m "Add changes" -a
+          git commit -m "Create new directory" -a
       - name: Push changes	
         uses: ad-m/github-push-action@master	
         with:	
