@@ -29,7 +29,7 @@ jobs:
           git config --local user.email "xudian.cn@gmail.com"	
           git config --local user.name "dianhsu"	
           git add *	
-          git commit -m "Create new directory" -a
+          git commit -m "GitHub Action 自动新建文件夹" -a
       - name: Push changes	
         uses: ad-m/github-push-action@master	
         with:	
